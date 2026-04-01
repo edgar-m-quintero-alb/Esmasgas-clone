@@ -1,0 +1,65 @@
+﻿.slide3 {
+    background-size: cover !important;
+    background: url('../images/Index/servicios-night.jpg') no-repeat center;
+}
+
+/*Start Media queries para el slide 'Descarga nuestra app'*/
+@media (max-width: 1200px) {
+    .title-download-app {
+        font-size: 2em !important;
+    }
+
+    .logo-store-app {
+        height: 55px !important;
+    }
+
+    .text-justify {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 992px) {
+    .title-download-app {
+        font-size: 1.8em !important;
+    }
+
+    .logo-store-app {
+        height: 50px !important;
+    }
+
+    .text-justify {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title-download-app {
+        font-size: 1.3em !important;
+    }
+
+    .logo-store-app {
+        height: 40px !important;
+    }
+
+    .text-justify {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 575px) {
+    .title-download-app {
+        font-size: 1em !important;
+    }
+
+    .logo-store-app {
+        height: 40px !important;
+    }
+}
+
+@media (min-width: 1201px)
+{
+    .logo-store-app {
+        height: 70px !important;
+    }
+}
+/*End Media queries para el slide 'Descarga nuestra app'*/

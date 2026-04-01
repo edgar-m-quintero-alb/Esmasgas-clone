@@ -1,0 +1,273 @@
+/*global $, alert, console*/
+var UTIL = {
+    patterns: {
+        UUID: /^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/
+    },
+    events: {
+        post: function (callSuccess, callError, webservice, data, background) {
+            'use strict';
+
+            if (background) {
+                $.smkProgressBar({
+                    element: 'body',
+                    status: 'start',
+                    bgColor: 'transparent',
+                    barColor: '#0F304D',
+                    content: ''
+                });
+            }
+
+            var _data = (typeof (data) !== 'undefined') ? data : {};
+
+            $.ajax({
+                url: webservice,
+                data: JSON.stringify(_data),
+                contentType: 'application/json; charset=utf-8',
+                type: "POST",
+                success: function (data, textStatus, jqXHR) {
+
+                    if (background) {
+                        $.smkProgressBar({
+                            status: 'end'
+                        });
+                    }
+
+                    UTIL.events.response(callSuccess, callError, data);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+
+                    if (background) {
+                        $.smkProgressBar({
+                            status: 'end'
+                        });
+                    }
+
+                    'use strict';
+
+                    var responseText = 'Error indefinido.';
+
+                    if (jqXHR.status === 0) {
+
+                        responseText = 'No se pudo conectar, intente nuevamente.';
+
+                    } else if (jqXHR.status === 404) {
+
+                        responseText = 'Pagina solicitada no se encuentra [404].';
+
+                    } else if (jqXHR.status === 500) {
+
+                        responseText = 'Error interno del servidor [500].';
+
+                    } else if (textStatus === 'parsererror') {
+
+                        responseText = 'Error de conversion.';
+
+                    } else if (textStatus === 'timeout') {
+
+                        responseText = 'Tiempo de espera agotado, reintente.';
+
+                    } else if (textStatus === 'abort') {
+
+                        responseText = 'Peticion abortada.';
+
+                    } else {
+
+                        responseText = jqXHR.responseText;
+                    }
+
+                    UTIL.events.error(responseText);
+
+                    try {
+                        callError(responseText)
+                        waitingDialog.hide();
+
+                    } catch (e) {
+                        console.error(e);
+                    }
+                }
+            });
+        },
+        get: function (callSuccess, callError, webservice, data, background) {
+            'use strict';
+
+            if (background) {
+                $.smkProgressBar({
+                    element: 'body',
+                    status: 'start',
+                    bgColor: 'transparent',
+                    barColor: '#0F304D',
+                    content: ''
+                });
+            }
+            var queryParams = $.param(data || {});
+            $.ajax({
+                url: webservice + (queryParams ? '?' + queryParams : ''),
+                method: 'GET',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data, textStatus, jqXHR) {
+                    if (background) {
+                        $.smkProgressBar({
+                            status: 'end'
+                        });
+                    }
+                    callSuccess(data);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    if (background) {
+                        $.smkProgressBar({
+                            status: 'end'
+                        });
+                    }
+
+                    if (typeof callError === 'function') {
+                        callError(errorThrown);
+                    }
+                }
+            });
+        },
+        response: function (success, error, data) {
+            'use strict';
+            try {
+                if (data) {
+                    if (data.error) {
+                        error(data.mensaje);
+                    } else {
+                        success(data.objeto ?? data);
+                    }
+                } else {
+                    error('Ocurrio un error, intente nuevamente.');
+                }
+            } catch (e) {
+                UTIL.events.error(e.message);
+            }
+        },
+        error: function (mensaje) {
+            'use strict';
+            $.smkAlert({
+                text: mensaje,
+                type: 'danger',
+                permanent: true
+            });
+        },
+        mensaje: function (mensaje) {
+            'use strict';
+            $.smkAlert({
+                text: mensaje,
+                type: 'info',
+                position: 'bottom-right',
+                permanent: true
+            });
+        },
+        error2: function (mensaje) {
+            'use strict';
+            alert(mensaje);
+        },
+        success: function (mensaje) {
+            $.smkAlert({
+                text: mensaje,
+                type: 'success',
+                permanent: true
+            }); 
+        },
+        descargar: function (path) {
+
+            $('body').append($('<iframe>', {
+                src: path,
+                style: 'visibility:hidden;display:none'
+            }));
+        },
+        getParameter: function (parametro) {
+            parametro = parametro.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + parametro + '=([^&#]*)'),
+                results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        },
+        arrayBufferToBase64: (buffer) => {
+            let string64 = '';
+            const bytes = new Uint8Array(buffer);
+            const len = bytes.byteLength;
+            for (let i = 0; i < len; i++) {
+                string64 += String.fromCharCode(bytes[i]);
+            }
+            return window.btoa(string64);
+        },
+        evalRegExp: (cadena, patron) => {
+            console.log(typeof patron);
+            if (typeof patron === "string") {
+                patron = new RegExp(patron);
+            }
+            return patron.test(cadena);
+        },  
+        evalRegExpM: (cadena, patron) => {
+            let result = false;
+            patron.forEach(RE => {
+                if (UTIL.events.evalRegExp(cadena, RE.Patron)) {
+                    result = true;
+                }
+            });
+            return result;
+        }
+
+    }
+};
+
+$.ajaxSetup({
+    timeout: 3000 * 60,
+    cache: false,
+});
+
+$.fn.extend({
+    isNullOrEmpty: function () {
+        'use strict';
+        var text = $(this).val();
+
+        if ((!text) || (text === null) || (text === 'undefined') || (text.length === 0)) {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    serializeJSON: function () {
+
+        'use strict';
+        var o = {},
+            a = this.serializeArray();
+        $.each(a, function () {
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    },
+    orderBy: function () {
+        $(this).each(function () {
+            var op = $(this).children("option");
+            op.sort(function (a, b) {
+                return a.text > b.text ? 1 : -1;
+            })
+            return $(this).empty().append(op);
+        });
+    }
+});
+
+String.prototype.replaceAllWord = function (find, newWord) {
+    'use strict';
+    return this.replace(new RegExp(find, 'g'), newWord);
+};
+
+String.prototype.isNullOrEmpty = function () {
+    'use strict';
+
+    var text = this;
+
+    if ((!text) || (text === null) || (text === 'undefined') || (text.length === 0)) {
+        return true;
+    } else {
+        return false;
+    }
+};

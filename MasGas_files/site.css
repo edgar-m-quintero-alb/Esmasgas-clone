@@ -1,0 +1,598 @@
+﻿@media (min-width: 768px) {
+
+    .navbar-nav > li > a {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        color: #1f1f1f !important;
+    }
+
+    .navbar {
+        min-height: 44px;
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+    .navbar-brand {
+        height: 44px;
+    }
+
+    .dropdown-item {
+        font-size: 11px;
+        font-weight: bold;
+    }
+}
+
+.dropdown-menu {
+    z-index: 100000;
+}
+
+.dropdown-item:hover {
+    background-color: inherit;
+}
+
+/* Estilo por defecto para el pseudo-elemento ::after (la flecha del dropdown) */
+.dropdown-toggle::after {
+    color: #000000;
+}
+
+/* Estilo para el pseudo-elemento ::after cuando se agrega la clase .noche */
+.dropdown-toggle.noche::after {
+    color: #FFFFFF !important;
+}
+
+
+/*Alinea los elementos del navbar en modo responsivo*/
+@media (min-width: 768px) {
+    .fill-item-nav {
+        flex: 1 1 0px !important;
+    }
+}
+
+@font-face {
+    font-family: 'custom-opensans-normal';
+    src: url('../fonts/opensans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'custom-opensans-bold';
+    src: url('../fonts/opensans/OpenSans-ExtraBold.ttf');
+}
+
+@media screen and (min-width: 768px) {
+
+    .carousel-control .glyphicon-chevron-left,
+    .carousel-control .glyphicon-chevron-right,
+    .carousel-control .icon-next,
+    .carousel-control .icon-prev {
+        width: 100%;
+    }
+}
+
+html,
+body {
+    height: 100% !important;
+}
+
+.h-10 {
+    min-height: 10%;
+}
+
+.h-90 {
+    min-height: 90% !important;
+}
+
+.h-150px {
+    height: 150px;
+}
+
+.h-100px {
+    height: 100px;
+}
+
+.h-50px {
+    height: 50px;
+}
+
+.h-40px {
+    height: 40px;
+}
+
+.h-30px {
+    height: 30px;
+}
+
+.h-15px {
+    height: 15px;
+    cursor: pointer;
+}
+
+
+.w-75 {
+    width: 75%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.br-15 {
+    border-radius: 15px;
+}
+
+.br-7 {
+    border-radius: 7px;
+}
+
+.fondo-primario {
+    background-color: #4d97fe;
+}
+
+.fondo-secundario {
+    background-color: #163161;
+}
+.fondo-naranja {
+    background-color: #eb8d22;
+}
+
+.color-primario {
+    color: #4d97fe;
+}
+
+.color-secundario {
+    color: #1f1f1f;
+}
+
+.color-blanco {
+    color: #FFF;
+}
+
+.color-naranja {
+    color: #eb8d22;
+}
+
+.color-azul {
+    color: #17345b;
+}
+
+.color-morado {
+    color: #380548;
+}
+
+.color-transparente {
+    color: transparent;
+}
+
+.color-transparente:hover {
+    color: transparent;
+    text-decoration: none;
+}
+
+.logo-1 {
+    max-height: 50px;
+}
+
+.color-gris {
+    color: #b9b9b9;
+}
+
+.facturacion {
+    background-image: url(../images/Facturacion/bg.jpg);
+}
+
+.card-card {
+    display: inline-flex;
+    margin-bottom: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-align: center;
+    height: 137px;
+}
+
+.card-card img {
+    width: 75% !important;
+    text-align: center;
+    height: 50px;
+}
+
+.card .front {
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+.img-responsive {
+    display: initial;
+}
+
+.text-grande {
+    font-size: 1.2em;
+}
+
+.text-normal {
+    font-size: 14px;
+}
+
+.text-small {
+    font-size: 12px;
+}
+
+.text-extra-small {
+    font-size: 10px;
+}
+
+.text-bold {
+    font-weight: bold;
+    font-family: 'custom-opensans-bold' !important;
+}
+
+.shadow2 {
+    background: radial-gradient(at 50% 0, #00000099, transparent 60%);
+    background-size: 100% 12px;
+    background-repeat: no-repeat;
+    padding: 18px 12px 0px 12px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.linea {
+    background: linear-gradient(to right, #193860 0%, #193860 12%, #efab55 12%, #efab55 100%);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    padding: 10px 0px 0px 22px;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+h1 {
+    font-size: 5.5em;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+h2 {
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 2.5em;
+}
+
+ul.sin-estilo {
+    list-style: none;
+}
+
+.card-big {
+    min-height: 400px;
+    margin-bottom: 60px;
+    margin-top: 30px;
+}
+
+.card-1 {
+    background-repeat: no-repeat;
+    background-image: url('https://esmasgas.com.mx/images/Index/Nosotros%20MasGas-min.jpg');
+    background-size: auto 100%;
+    background-position: center;
+}
+
+.card-2 {
+    background-repeat: no-repeat;
+    background-image: url('https://esmasgas.com.mx/images/Index/combustibles%20G%20Boost-min.jpg');
+    background-size: auto 100%;
+    background-position: center;
+}
+
+.espacio-letra {
+    letter-spacing: 2px;
+}
+
+.pre-footer {
+    min-height: 350px;
+}
+
+.btn-primario {
+    background-color: #4d97fe;
+    color: #FFF;
+    border: 1px solid #4d97fe;
+    font-weight: bold;
+}
+
+.btn-primario:hover {
+    background-color: #006bff;
+    color: #FFF;
+    border: 1px solid #006bff;
+    font-weight: bold;
+}
+
+.btn-fantasma {
+    background-color: transparent;
+    color: #FFF;
+    border: 2px solid #4d97fe;
+    font-weight: bold;
+}
+
+.btn-fantasma:hover {
+    background-color: transparent;
+    color: #FFF;
+    border: 2px solid #006bff;
+    font-weight: bold;
+}
+
+.box-estaciones {
+    /*min-height: 400px;*/
+    background-repeat: no-repeat;
+    background-image: url('/images/Index/Nosotros MasGas-min.jpg');
+    background-size: 100% 100%;
+    /*background-size: 100% auto;*/
+    /*background-position: 0px -250px;*/
+}
+
+/*.carousel-control-next,
+.carousel-control-prev {
+    position: absolute;
+    top: 40%;
+    bottom: 50%;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 45px;
+    background-color: #ccc;
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 15px;
+    opacity: .8;
+}*/
+
+.nav > li > a:focus,
+.nav > li > a:hover {
+    background-color: transparent;
+}
+
+.borde-bottom:hover {
+    border-bottom: 2px solid #eb8d22;
+}
+
+.titulo {
+    background-image: url('https://esmasgas.com.mx/images/Index/fondo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nosotros-page {
+    background-repeat: no-repeat;
+    background-image: url(/images/Nosotros/fondo.jpg);
+    background-size: 100% 100%;
+}
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.header-estaciones {
+    background: url(../images/Nosotros/fondo.jpg);
+}
+
+.btn-cerrar {
+    position: absolute;
+    right: 0px;
+    z-index: 10000;
+    background: #163161 !important;
+    opacity: 1;
+    text-shadow: none;
+    color: #FFF;
+    font-size: 1.5rem;
+    font-weight: normal;
+    border-bottom-left-radius: 10px;
+    padding-bottom: 6px !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+
+.fila-estaciones {
+    min-height: 384px;
+}
+
+.progress.g-super {
+    border-radius: 100px;
+    height: 12px;
+    border: solid 1px;
+    border-color: #78be21;
+    background-color: transparent;
+}
+
+.progress-bar.g-premium {
+    background-color: #db2c84;
+}
+
+.progress.g-premium {
+    border-radius: 100px;
+    height: 12px;
+    border: solid 1px;
+    border-color: #db2c84;
+    background-color: transparent;
+}
+
+.progress-bar.g-super {
+    background-color: #78be21;
+}
+
+.interlineado-18 {
+    line-height: 18px;
+}
+
+.interlineado-16 {
+    line-height: 16px;
+}
+
+hr {
+    margin: 0.5rem;
+    border: 0;
+    border-top: 1px solid #fff;
+    opacity: 0.5;
+}
+
+.headermenu-carousel {
+    position: absolute;
+    z-index: 1000;
+    height: 30px;
+    width: 100%;
+}
+
+.h4-extra {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 1.5rem;
+    letter-spacing: 0px;
+}
+
+.border-radius-50 {
+    border-radius: 1000px;
+}
+
+.linea-texto {
+    border-bottom: solid 5px #17345b;
+    padding-right: 100px;
+    padding-bottom: 25px;
+}
+
+.carrousel-1 {
+    background-image: url(../images/Index/banner3.jpg);
+    height: 350px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.linea-azul {
+    border-bottom: solid 2px #ccc;
+    width: 48%;
+}
+
+.linea-azul.active {
+    border-bottom: solid 2px #4d97fe;
+}
+
+input[type='text'] {
+    border: solid 0 #000 !important;
+    border-bottom: solid 1px #000 !important;
+    border-radius: 0px !important;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+
+
+.carousel-inner {
+    text-align: center;
+}
+
+.carousel .item > img {
+    display: inline-block;
+}
+
+.carousel-inner img.max {
+    max-width: 100%;
+    min-width: 100%;
+}
+/*
+.carousel-item {
+    min-height: 340px;
+    max-height: 340px;
+}*/
+
+.logo-bases {
+    background-image: url('../images/Nosotros/fondo.jpg');
+    background-position: center;
+    background-size: auto 100%;
+    border-radius: 100%;
+    height: 150px;
+    width: 150px;
+    padding: 20px;
+}
+
+.flotar-izquierda {
+    position: absolute;
+    bottom: 50%;
+    height: 150px;
+    left: -50%;
+}
+
+.flotar-izquierda-top {
+    position: absolute;
+    height: 150px;
+    left: -50%;
+}
+
+.flotar-derecha {
+    position: absolute;
+    bottom: 50%;
+    height: 150px;
+    right: -50%;
+}
+
+.flotar-derecha-top {
+    position: absolute;
+    height: 150px;
+    right: -50%;
+}
+
+.text-blanco-noche a {
+    color: inherit!Important;
+}
+
+.form-control-label{
+    display:block;
+    text-align:left;
+}
+
+.has-feedback .smk-error-msg{
+    color: #dc3545;
+}
+
+.text-orange {
+    color: #F05815;
+}
+.bg-orange {
+    background-color: #F05815;
+}
+
+/* lg en Bootstrap 4 empieza en 992px */
+@media (min-width: 992px) { 
+    .h-lg-100 {
+        height: 100% !important;
+    }
+
+    #container_datos_facturacion {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+        #container_datos_facturacion .card {
+            flex: 1 1 auto; /* crecer y ocupar espacio disponible */
+            min-height: 0;
+        }
+}
+
+/* md en adelante (≥768px) */
+@media (min-width: 768px) {
+    .h-md-100 {
+        height: 100% !important;
+    }
+}
+
+/* sm en adelante (≥576px) */
+@media (min-width: 576px) {
+    .h-sm-100 {
+        height: 100% !important;
+    }
+}

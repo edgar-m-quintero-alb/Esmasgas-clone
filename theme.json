@@ -1,0 +1,22 @@
+{
+    "title": "+Gas Virtual Asistant DEMO",
+    "subTitle": "",
+    "styles": ["../css/esmasgas.css"],
+    "fonts": ["../fonts/fonts.css"],
+    "placeholder": "Escribe tu mensaje aquí",
+    "isMarkdown": true,
+    "answerRating": "always",
+    "chatHistory": "off",
+    "cardOptions": {
+      "direction": "horizontal",
+      "slidesPerView": 1.5,
+      "centeredSlides": true,
+      "spaceBetween": 10,
+      "navigation": true,
+      "pagination": { "clickable": true },
+      "keyboard": {
+        "enabled": true
+      },
+      "centeredSlidesBounds": true
+    }
+}

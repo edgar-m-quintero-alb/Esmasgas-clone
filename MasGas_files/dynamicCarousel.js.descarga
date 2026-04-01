@@ -1,0 +1,38 @@
+var DynamicCarousel = {
+    init: function(id) {
+        this.setupCarousel(id);
+    },
+
+    setupCarousel: function(id) {
+        var carousel = $(id);
+        if (carousel.length === 0) return;
+
+        // Detener el auto-slide por defecto
+        carousel.carousel('pause');
+
+        var currentIndex = 0;
+        var items = carousel.find('.carousel-item');
+        var totalItems = items.length;
+
+        if (totalItems <= 1) return;
+
+        function nextSlide() {
+            var currentItem = $(items[currentIndex]);
+            var interval = parseInt(currentItem.data('interval')) || 5000;
+            
+            setTimeout(function() {
+                currentIndex = (currentIndex + 1) % totalItems;
+                carousel.carousel('next');
+                nextSlide();
+            }, interval);
+        }
+
+        // Iniciar el ciclo
+        nextSlide();
+
+        // Manejar clicks manuales
+        carousel.on('slide.bs.carousel', function(e) {
+            currentIndex = $(e.relatedTarget).index();
+        });
+    }
+};

@@ -1,0 +1,33 @@
+﻿var SITE = {
+    init: function () {
+
+        $('.modo').click(this.events.noche);
+    },
+    events: {
+        noche: function () {
+            var modo = $('.modo').attr('data-modo');
+
+            if (modo == 'dia') {
+                $('.text-blanco-noche').css('color', '#FFF');
+                $(".dropdown-toggle").addClass("noche");
+                $('body, .fondo-noche').css('background-color', '#163161');
+                
+                $('.titulo').css('background-image', 'url(/images/Index/fondo-noche.jpg)');
+
+                $('.modo').attr('data-modo', 'noche');
+                $('.modo img').attr('src', '/images/logos/dia.svg');
+            }
+
+            if (modo == 'noche') {
+                $('.text-blanco-noche').removeAttr('style');
+                $(".dropdown-toggle").removeClass("noche");
+                $('body, .fondo-noche').css('background-color', '#FFF');
+
+                $('.titulo').css('background-image', 'url(/images/Index/fondo.png)');
+                
+                $('.modo').attr('data-modo', 'dia');
+                $('.modo img').attr('src', '/images/logos/nocturno.svg');
+            }
+        }
+    }
+};
